@@ -1,6 +1,6 @@
 package com.Pluralsight.NorthwindTradersSpringBoot;
 
-import com.Pluralsight.NorthwindTradersSpringBoot.Dao.ProductDao;
+import com.Pluralsight.NorthwindTradersSpringBoot.Dao.IProductDao;
 import com.Pluralsight.NorthwindTradersSpringBoot.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -9,9 +9,9 @@ import org.springframework.stereotype.Component;
 import java.util.Scanner;
 
 @Component
-public class ProductApp implements CommandLineRunner {
+public class Ui implements CommandLineRunner {
     @Autowired
-    private ProductDao productDao;
+    private IProductDao productDao;
 
     @Override
     public void run(String... args) throws Exception {
