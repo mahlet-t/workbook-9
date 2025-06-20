@@ -1,20 +1,20 @@
 package com.Pluralsight.NorthwindTradersSpringBoot.Dao;
 
 import com.Pluralsight.NorthwindTradersSpringBoot.model.Product;
-import org.springframework.stereotype.Component;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
+
 public class ProductDao implements IProductDao{
     private int nextId = 3;
 
     final private List<Product> products = new ArrayList<>();
 
     public ProductDao() {
-        products.add(new Product(1, "Laptop", "Electronics", 799));
-        products.add(new Product(2, "Desk Chair", "Furniture", 149));
+        products.add(new Product(1, "Laptop", 1, 799));
+        products.add(new Product(2, "Desk Chair", 2, 149));
     }
 
 

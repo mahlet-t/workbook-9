@@ -1,4 +1,4 @@
-package com.Pluralsight.NorthwindTradersSpringBoot;
+package com.Pluralsight.NorthwindTradersSpringBoot.Ui;
 
 import com.Pluralsight.NorthwindTradersSpringBoot.Dao.IProductDao;
 import com.Pluralsight.NorthwindTradersSpringBoot.model.Product;
@@ -35,8 +35,8 @@ public class Ui implements CommandLineRunner {
                     String name = input.nextLine();
 
                     System.out.print("Enter category: ");
-                    String category = input.nextLine();
-
+                    int category = input.nextInt();
+                    input.nextLine();
                     System.out.print("Enter price: ");
                     double price = input.nextDouble();
                     input.nextLine();
