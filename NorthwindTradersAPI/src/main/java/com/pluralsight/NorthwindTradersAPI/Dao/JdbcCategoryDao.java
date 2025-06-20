@@ -53,4 +53,45 @@ return categories;
         }
         return null;
     }
+
+    @Override
+    public Category add(Category category) {
+        String query ="Insert into Categories (categoryId,categoryName) values(?, ?)";
+        try (Connection connection= dataSource.getConnection()){
+            PreparedStatement statement= connection.prepareStatement(query);
+            statement.setInt(1,category.getCategoryId());
+            statement.setString(2,category.getCategoryName());
+            statement.executeUpdate();
+            return category;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    @Override
+    public void update(int id, Category category) {
+        String query="update categories SET categoryName=? where categoryID=?";
+        try(Connection connection= dataSource.getConnection()){
+            PreparedStatement statement= connection.prepareStatement(query);
+            statement.setString(1,category.getCategoryName());
+            statement.setInt(2,category.getCategoryId());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    @Override
+    public void delete(int id) {
+        String query="DELETE From categories where categoryID=?";
+        try(Connection connection= dataSource.getConnection()){
+            PreparedStatement statement= connection.prepareStatement(query);
+            statement.setInt(1,id);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
